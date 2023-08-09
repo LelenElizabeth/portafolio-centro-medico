@@ -1,0 +1,61 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #17a2b8;
+  height: 100vh;
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
+#login .container #login-row #login-column #login-box {
+  margin-top: 120px;
+  max-width: 600px;
+  height: 320px;
+  border: 1px solid #9C9C9C;
+  background-color: #EAEAEA;
+}
+#login .container #login-row #login-column #login-box #login-form {
+  padding: 20px;
+}
+#login .container #login-row #login-column #login-box #login-form #register-link {
+  margin-top: -85px;
+}
+.alerta {
+    display: none;
+    position: absolute;
+    top: -40px;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+  }
+.contenedor {
+  flex: 1;
+}
+
+.footer {
+  flex-shrink: 0;
+  height: 60px;
+  background-color: #f1f1f1;
+  position: relative; /* Posicionamiento relativo */
+  bottom: 0; /* Lo coloca inicialmente al final del contenedor */
+  width: 100%;
+  margin-top: auto; /* Empuja el footer hacia abajo, pero no m�s all� del final del contenido */
+}
+
+.label{
+	padding-bottom: 8px;
+}
+.color-form {
+	background-color: #17a2b8;
+	color:black;
+}
+
+.root {
+  --bs-primary:#17a2b8; /* Cambiar a tu color deseado */
+}
