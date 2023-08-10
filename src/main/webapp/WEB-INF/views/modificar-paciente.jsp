@@ -40,13 +40,13 @@
 			<c:set var="mensaje" value="${mensaje}" />
 						
 				<div class="card-header text-info"> 
-					<h2 class="card-title d-flex" > <i class="bi bi-clipboard-plus"></i>   Crear
+					<h2 class="card-title d-flex" > <i class="bi bi-clipboard-plus"></i>Modificar
 						Paciente</h2>
 						
 				</div>
 				<div class="card-body">
 				</span>
-					<form action="crear-paciente" id="formulario" class="row" method="post">
+					<form action="modificar-paciente" id="formulario" class="row" method="post">
 						<div class="col-md-6 mb-3">
 							<label for="rut" class="form-label">Rut</label> 
 							<input  type="text"class="form-control" name="rut" required>
@@ -104,7 +104,6 @@
 					</form>
 				</div>
 			</div>
-		</div>
 	</main>
 	<%@ include file='footer.jsp'%>
 	<!-- JavaScript Bootstrap -->
