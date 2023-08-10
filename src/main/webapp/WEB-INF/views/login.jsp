@@ -23,7 +23,6 @@
 <title>Iniciar Sesión</title>
 <!-- CSS del proyecto -->
 <body>
-
 	<!-- Incluyendo navbar -->
 	<c:set var="navItem" value="Login" />
 	<!-- Menu activo -->
@@ -33,12 +32,11 @@
 		<div class="container mt-4">
 			<!-- Fomulario de login -->
 			<div id="login" class="row justify-content-center align-items-center">
-
-				<div class="col-lg-8 col-md-8">
-					<div class="card">
+				<div class="col-lg-12 col-md-8">
+					<div class="card"><span class="border border-info">
 						<div class="card-body">
 							<div id="login-column" class="col-md-6">
-								<div id="login-box" class="col-md-12">
+								<div id="login-box" class="col-md-12"> 
 									<form id="login-form" class="form" action="" method="post">
 										<h3 class="text-center text-info">Iniciar sesión</h3>
 										<div class="form-group">
@@ -56,13 +54,13 @@
 											</span> <span><input id="remember-me" name="remember-me"
 													type="checkbox"></span></label><br> <input type="submit"
 												name="submit" class="btn btn-info btn-md"
-												value="IniciarSesion">
+												value="Iniciar sesion">
 										</div>
 									</form>
 								</div>
 							</div>
 						</div>
-					</div>
+					</div></span>
 				</div>
 			</div>
 		</div>

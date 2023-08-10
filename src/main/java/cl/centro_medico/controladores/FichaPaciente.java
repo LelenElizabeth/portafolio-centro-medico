@@ -6,16 +6,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 	@Controller
-	public class PacienteControlador {
+	public class FichaPaciente {
 
-		@RequestMapping(value = "/CrearPaciente")
-	    public ModelAndView mostrarPaciente() {
-	        return new ModelAndView("crear-paciente");
+		@RequestMapping(value = "/FichaPaciente")
+	    public ModelAndView mostrarFicha() {
+	        return new ModelAndView("ficha-paciente");
 	    }
-		@RequestMapping(value = "/ModificarPaciente")
-	    public ModelAndView mostrarVista() {
-	        return new ModelAndView("modificar-paciente");
-	    }
+
 //		@RequestMapping(value ="/ListadoPacientes",method = RequestMethod.GET)
 //		public ModelAndView listarPacientes () { 
 //			ArrayList<Paciente> listarPacientes = new ArrayList<>();

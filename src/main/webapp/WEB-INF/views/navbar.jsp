@@ -41,7 +41,7 @@
 					        </a>
 					        <ul class="dropdown-menu">
 					            <li><a class="dropdown-item" href="CrearPaciente"> <i class="bi bi-file-plus"></i> Crear Paciente</a></li>
-					            <li><a class="dropdown-item" href="modificar-paciente"> <i class="bi bi-file-plus"></i> Modificar Paciente</a></li>
+					            <li><a class="dropdown-item" href="ModificarPaciente"> <i class="bi bi-file-plus"></i> Modificar Paciente</a></li>
 					            <li><a class="dropdown-item" href="buscar-paciente"> <i class="bi bi-file-plus"></i> Buscar Paciente</a></li>
 					            
 					        </ul>
@@ -55,7 +55,7 @@
 					           <i class="bi bi-card-list"></i> Listar
 					        </a>
 					        <ul class="dropdown-menu">
-					            <li><a class="dropdown-item" href="ListarPaciente"> <i class="bi bi-file-plus"></i> Listar Paciente</a></li>
+					            <li><a class="dropdown-item" href="ListadoPacientes"> <i class="bi bi-file-plus"></i> Listar Paciente</a></li>
 					        </ul>					        
 					    </li>
 					</sec:authorize>
@@ -67,8 +67,9 @@
 					            <i class="bi bi-plus-circle"></i> Ficha Médica
 					        </a>
 					        <ul class="dropdown-menu">
-					            <li><a class="dropdown-item" href="CrearPaciente"> <i class="bi bi-file-plus"></i> Crear Ficha</a></li>
-					            <li><a class="dropdown-item" href="modificar-paciente"> <i class="bi bi-file-plus"></i> Modificar Ficha</a></li>					        </ul>
+					            <li><a class="dropdown-item" href="FichaPaciente"> <i class="bi bi-file-plus"></i> Ficha Paciente</a></li>
+					        </ul>
+					            
 					    </li>
 					</sec:authorize>					
 					<!-- Login si no ha iniciado sesión -->
