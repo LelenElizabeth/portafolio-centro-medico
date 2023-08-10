@@ -7,7 +7,8 @@
     <!-- Definición del contenedor raíz de Spring, compartido por todos los Servlets y Filtros -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/spring/root-context.xml</param-value>
+        <param-value>/WEB-INF/spring/root-context.xml
+       				 /WEB-INF/spring/spring-security.xml</param-value>
     </context-param>
 
     <!-- Crea el contenedor Spring compartido por todos los Servlets y Filtros -->
@@ -35,5 +36,4 @@
         <servlet-name>appServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
 </web-app>

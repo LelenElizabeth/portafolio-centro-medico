@@ -16,6 +16,10 @@ import org.springframework.web.servlet.ModelAndView;
 	    public ModelAndView mostrarVista() {
 	        return new ModelAndView("modificar-paciente");
 	    }
+		@RequestMapping(value = "/ListaPacientes")
+	    public ModelAndView mostrarLista() {
+	        return new ModelAndView("listado-pacientes");
+	    }
 //		@RequestMapping(value ="/ListadoPacientes",method = RequestMethod.GET)
 //		public ModelAndView listarPacientes () { 
 //			ArrayList<Paciente> listarPacientes = new ArrayList<>();

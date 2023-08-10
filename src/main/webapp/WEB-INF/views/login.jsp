@@ -33,39 +33,58 @@
 			<!-- Fomulario de login -->
 			<div id="login" class="row justify-content-center align-items-center">
 				<div class="col-lg-12 col-md-8">
-					<div class="card"><span class="border border-info">
+					<div class="card border border-info">
 						<div class="card-body">
-							<div id="login-column" class="col-md-6">
-								<div id="login-box" class="col-md-12"> 
-									<form id="login-form" class="form" action="" method="post">
-										<h3 class="text-center text-info">Iniciar sesión</h3>
-										<div class="form-group">
-											<label for="usuario" class="text-info">Usuario:</label><br>
-											<input type="text" name="usuario" id="usuario"
-												class="form-control">
-										</div>
-										<div class="form-group">
-											<label for="contrasena" class="text-info">Contraseña:</label><br>
-											<input type="text" name="contrasena" id="contrasena"
-												class="form-control">
-										</div>
-										<div class="form-group">
-											<label for="remember-me" class="text-info"><span>Recuerdame
-											</span> <span><input id="remember-me" name="remember-me"
-													type="checkbox"></span></label><br> <input type="submit"
-												name="submit" class="btn btn-info btn-md"
-												value="Iniciar sesion">
-										</div>
-									</form>
+							<c:choose>
+								<c:when test="${error}">
+									<div class="alert alert-danger" style="text-align: center"
+										role="alert">Error al iniciar sesión.</div>
+								</c:when>
+								<c:when test="${logoutt}">
+									<div class="alert alert-warning" style="text-align: center"
+										role="alert">Se cerró la sesión correctamente.</div>
+								</c:when>
+							</c:choose>
+							<div class="row justify-content-start">
+								<img src="res/img/user-solid.svg" class="rounded float-start"
+									alt="..."> <i class="fa-solid fa-user fa-beat"
+									style="color: #36b4c4;"></i>
+								<div id="login-column" class="col-md-6">
+									<div id="login-box" class="col-md-12">
+
+										<!-- Formulario login -->
+										<form action="login" method="POST">
+											<h3 class="text-center text-info">Iniciar sesión</h3>
+											<div class="mb-3">
+												<label for="usuario" class="form-label text-info">Usuario:</label><br>
+												<input type="text" name="usuario" id="usuario"
+													class="form-control" required>
+											</div>
+											<div class="mb -3 form-group">
+												<label for="password" class="form-label text-info">Contraseña:</label><br>
+												<input type="password" name="password" id="password"
+													class="form-control" required>
+											</div>
+											<div class="form-group">
+												<label for="form-check" class="text-info"><span>Recuerdame
+												</span> <span><input id="remember-me" name="remember-me"
+														type="checkbox"></span></label><br>
+											</div>
+											<div>
+												<button type="submit" class="btn btn-info w-75">Iniciar
+													Sesión</button>
+											</div>
+										</form>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div></span>
+					</div>
 				</div>
 			</div>
 		</div>
 	</main>
-	
+
 	<!-- Footer proyecto -->
 	<%@ include file='footer.jsp'%>
 	<!-- JavaScript Bootstrap -->

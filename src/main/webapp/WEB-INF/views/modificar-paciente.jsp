@@ -25,7 +25,7 @@
 <body class="d-flex flex-column h-100">
 
 <!-- Incluyendo navbar menu -->
-	<c:set var="navItem" value="Crear" /> <!-- Menu activo -->
+	<c:set var="navItem" value="Modificar" /> <!-- Menu activo -->
 	<c:set var="navText" value="Paciente"/> <!-- Texto Crear -->
 	<%@ include file='navbar.jsp'%>
 

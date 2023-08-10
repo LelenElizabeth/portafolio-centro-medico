@@ -87,7 +87,7 @@
 				</div>
 				<div class="card-body">
 				</span>
-					<form action="modificar-paciente" id="formulario" class="row" method="post">
+					<form action="ficha-paciente" id="formulario" class="row" method="post">
 						<div class="col-md-12 m3-2">
 							<label for="anamnesis" class="form-label">Anamnesis</label>
 							<textarea class="form-control" id="anamnesis" name="anamnesis"

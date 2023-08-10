@@ -24,12 +24,12 @@
 	<!-- Incluyendo navbar menu -->
 	<c:set var="navItem" value="Listar" />
 	<!-- Menu activo -->
-	<c:set var="navText" value="Visitas" />
+	<c:set var="navText" value="Pacientes" />
 	<!-- Texto Listar -->
 	<%@ include file='navbar.jsp'%>
 
 	<main class="flex-shrink-0">
-		<!--  Vista para mostrar las capacitaciones -->
+		<!--  Vista que muestra el listado de pacientes -->
 		<div class="container mt-4">
 
 			<section>
@@ -38,9 +38,9 @@
 					<c:when test="${empty listaPacientes}">
 						<div class="alert alert-danger" style="text-align: center"
 							role="alert">
-							No hay registros de Pacientes. <a href="crear-paciente"
-								class="alert-link">Ir a crear paciente</a>
-						</div>
+							No hay registros de Visitas. <a href="CrearVisita"
+								class="alert-link">Ir a crear Paciente</a>
+						</div>					
 					</c:when>
 					<c:otherwise>
 						<!-- Agregar la variable booleana  -->
@@ -54,11 +54,12 @@
 						</c:if>
 
 						<table class="table table-striped table-bordered">
-							<thead class="table-dark">
+							<thead class="table-info">
+							
 								<tr>
 									<th>Rut Paciente</th>
 									<th>Nombres</th>
-									<th>Aepllidos</th>
+									<th>Apellidos</th>
 									<th>Fecha atención</th>
 									<th>Médico</th>
 									<th>Modificar</th>
@@ -66,20 +67,23 @@
 							</thead>
 							<tbody>
 								<!-- Ciclo forEach con JSTL para imprimir datos de la lista -->
-								<c:forEach var="vis" items="${listaVisitas}">
+								<c:forEach var="pac" items="${listaPacientes}">
 									<tr>
-										<td><c:out value="${vis.getCliente().getRut()}"></c:out></td>
-										<td><c:out value="${vis.getFecha_hora()}"></c:out></td>
-										<td><c:out value="${vis.getLugar()}"></c:out></td>
-										<td><c:out value="${vis.getComentarios()}"></c:out></td>
-										<td><c:out value="${vis.getProfesional().getId()}"></c:out></td>
+										<td><c:out value="${pac.getRut()}"></c:out></td>
+										<td><c:out value="${pac.getNombres()}"></c:out></td>
+										<td><c:out value="${pac.getApellido1()}"></c:out></td>
+										<td><c:out value="${pac.getApellido2()}"></c:out></td>
+										<td><c:out value="${pac.getFecha_hora()}"></c:out></td>
+										<td><c:out value="${pac.getGenero()}"></c:out></td>
+										<td><c:out value="${pac.getTelefono()}"></c:out></td>
+										<td><c:out value="${pac.getCorreo()}"></c:out></td>
 										<td>
 											<!-- Enviamos el id para visualizar los chequeos de la visita -->
 											<form action="responder-checklist" method="get">
-												<input type="hidden" name="visitaId"
-													value="${vis.getId()}">
-												<button type="submit" class="btn btn-outline-dark btn-sm">
-													<i class="bi bi-check2-square"></i> CheckList
+												<input type="hidden" name="PacienteId"
+													value="${pac.getId()}">
+												<button type="submit" class="btn btn-outline-info btn-sm">
+													<i class="bi bi-check2-square"></i> Evolucionar
 												</button>
 											</form>
 										</td>

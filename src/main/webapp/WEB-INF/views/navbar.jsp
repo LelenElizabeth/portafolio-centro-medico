@@ -32,7 +32,7 @@
 						href="Inicio"> <i class="bi bi-house"></i> Inicio
 					</a></li>
 					 
-					<sec:authorize access="hasAuthority('Administrativo')">
+					<sec:authorize access="hasAuthority('Sistemas','Administrativo', 'Medico')">
 					    <!-- Menú para Administrativo -->
 					    <li class="nav-item dropdown ms-2">
 					        <a class="nav-link dropdown-toggle ${navItem == 'Paciente' ? 'active' : ''}"
@@ -42,24 +42,22 @@
 					        <ul class="dropdown-menu">
 					            <li><a class="dropdown-item" href="CrearPaciente"> <i class="bi bi-file-plus"></i> Crear Paciente</a></li>
 					            <li><a class="dropdown-item" href="ModificarPaciente"> <i class="bi bi-file-plus"></i> Modificar Paciente</a></li>
-					            <li><a class="dropdown-item" href="buscar-paciente"> <i class="bi bi-file-plus"></i> Buscar Paciente</a></li>
-					            
 					        </ul>
 					    </li>
 					</sec:authorize>
 					<!-- Menu Listar del Administrativo -->
-					<sec:authorize access="hasAnyAuthority('Administrativo')">
+					<sec:authorize access="hasAnyAuthority('Sistemas','Administrativo', 'Medico')">
 					    <li class="nav-item dropdown ms-2">
 					        <a class="nav-link dropdown-toggle ${navItem == 'Listar' ? 'active' : ''}"
 					           id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#">
 					           <i class="bi bi-card-list"></i> Listar
 					        </a>
 					        <ul class="dropdown-menu">
-					            <li><a class="dropdown-item" href="ListadoPacientes"> <i class="bi bi-file-plus"></i> Listar Paciente</a></li>
+					            <li><a class="dropdown-item" href="ListaPacientes"> <i class="bi bi-file-plus"></i> Listado de Pacientes</a></li>
 					        </ul>					        
 					    </li>
 					</sec:authorize>
-					<sec:authorize access="hasAuthority('Administrativo')">
+					<sec:authorize access="hasAuthority('Sistemas', 'Medico')">
 					    <!-- Menú para Administrativo -->
 					    <li class="nav-item dropdown ms-2">
 					        <a class="nav-link dropdown-toggle ${navItem == 'Ficha Médica' ? 'active' : ''}"
@@ -75,10 +73,10 @@
 					<!-- Login si no ha iniciado sesión -->
 					<sec:authorize access="!isAuthenticated()">
 							<li class="nav-item flex-row flex-wrap text-light">
-						    	<a class="nav-link " href="login">
+						    	<a class="nav-link" href="login">
 							<i class="bi bi-box-arrow-in-left ms-2"></i> Login</a>
 						</li>
-					</sec:authorize>
+					</sec:authorize">
 				</ul>
 				<sec:authorize access="isAuthenticated()">
 					<ul class="navbar-nav flex-row flex-wrap text-light">
@@ -100,8 +98,6 @@
 		</div>
   
 </nav>
-
-
 </header>
 <!-- Modal de Cerrar Sesión -->
 <div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
