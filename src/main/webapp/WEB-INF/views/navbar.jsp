@@ -42,8 +42,8 @@
 					            <i class="bi bi-person-fill-add"></i> Paciente
 					        </a>
 					        <ul class="dropdown-menu">
-					            <li><a class="dropdown-item" href="CrearPaciente"> <i class="bi bi-file-plus"></i> Crear Paciente</a></li>
-					            <li><a class="dropdown-item" href="ModificarPaciente"> <i class="bi bi-file-plus"></i> Modificar Paciente</a></li>
+					            <li><a class="dropdown-item" href="CrearPaciente"> <i class="bi bi-person-fill-add"></i></i> Crear Paciente</a></li>
+					            <li><a class="dropdown-item" href="ModificarPaciente"> <i class="bi bi-person-check-fill"></i> Modificar Paciente</a></li>
 					        </ul>
 					    </li>
 					</sec:authorize>
@@ -55,7 +55,7 @@
 					           <i class="bi bi-card-list"></i> Listar
 					        </a>
 					        <ul class="dropdown-menu">
-					            <li><a class="dropdown-item" href="ListaPacientes"> <i class="bi bi-file-plus"></i> Listado de Pacientes</a></li>
+					            <li><a class="dropdown-item" href="ListaPacientes"> <i class="bi bi-card-list"></i> Listado de Pacientes</a></li>
 					        </ul>					        
 					    </li>
 					</sec:authorize>
@@ -64,10 +64,10 @@
 					    <li class="nav-item dropdown ms-2">
 					        <a class="nav-link dropdown-toggle text-white ${navItem == 'Ficha Médica' ? 'active' : ''}"
 					           id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#">
-					            <i class="bi bi-plus-circle"></i> Ficha Médica
+					            <i class="bi bi-clipboard-plus"></i> Ficha Médica
 					        </a>
 					        <ul class="dropdown-menu">
-					            <li><a class="dropdown-item" href="FichaPaciente"> <i class="bi bi-card-list"></i> Ficha Paciente</a></li>
+					            <li><a class="dropdown-item" href="FichaPaciente"> <i class="bi bi-clipboard-plus"></i> Ficha Paciente</a></li>
 					        </ul>
 					            
 					    </li>
