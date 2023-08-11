@@ -113,9 +113,10 @@
                 ¿Estás seguro de que deseas cerrar sesión?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal">Cancelar</button>
-                <a href="logout" class="btn btn-info">Cerrar Sesión</a>
+                <button type="button" class="btn btn-info" data-bs-dismiss="modal">Cancelar</button>
+                <a href="logout" class="btn btn-info">  Cerrar Sesión</a>
             </div>
         </div>
     </div>
 </div>
+
