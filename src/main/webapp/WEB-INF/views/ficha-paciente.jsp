@@ -30,6 +30,7 @@
 	<%@ include file='navbar.jsp'%>
 
 	<main class="flex-shrink-0">
+	<div style="padding-top: 120px;"></div>
 		<div class="align-items-center mt-4" >
 		
 			<!-- Formulario para mostrar los datos del paciente -->

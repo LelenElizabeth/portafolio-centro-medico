@@ -29,6 +29,7 @@
 	<%@ include file='navbar.jsp'%>
 
 	<main class="flex-shrink-0">
+	<div style="padding-top: 120px;"></div>
 		<!--  Vista que muestra el listado de pacientes -->
 		<div class="container mt-4">
 

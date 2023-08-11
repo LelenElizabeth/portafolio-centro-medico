@@ -10,13 +10,15 @@
 <header>
 
 	<!-- Navbar del sitio -->
-<nav class="navbar navbar-expand" style="background-color: #17a2b8;">
+<nav class="navbar navbar-expand-md fixed-top" style="background-color: #17a2b8;">
   <!-- Navbar content -->
   		<div class="container-fluid">
 			<!-- Logo y nombre del sitio -->
-			<a class="navbar-brand" href="#"> <i class="bi bi-fan"></i> <span
-				class="text-ligth">Centro médico</span>
+			<a class="navbar-brand" href="#"> <i class="bi bi-hospital text-white"></i> <span
+				class="text-white">Centro Médico</span>
 			</a>
+			    <!-- Espacio para el navbar fijo -->
+    <div style="padding-top: 70px;"></div>
 			<!-- boton del menu  -->
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#menu"
@@ -28,16 +30,16 @@
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item ms-2"><a
-						class="nav-link ${navItem == 'Inicio' ? 'active' : ''}"
+						class="nav-link text-white ${navItem == 'Inicio' ? 'active' : ''}"
 						href="Inicio"> <i class="bi bi-house"></i> Inicio
 					</a></li>
 					 
 					<sec:authorize access="hasAuthority('Sistemas','Administrativo', 'Medico')">
 					    <!-- Menú para Administrativo -->
 					    <li class="nav-item dropdown ms-2">
-					        <a class="nav-link dropdown-toggle ${navItem == 'Paciente' ? 'active' : ''}"
+					        <a class="nav-link dropdown-toggle text-white ${navItem == 'Paciente' ? 'active' : ''}"
 					           id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#">
-					            <i class="bi bi-plus-circle"></i> Paciente
+					            <i class="bi bi-person-fill-add"></i> Paciente
 					        </a>
 					        <ul class="dropdown-menu">
 					            <li><a class="dropdown-item" href="CrearPaciente"> <i class="bi bi-file-plus"></i> Crear Paciente</a></li>
@@ -48,7 +50,7 @@
 					<!-- Menu Listar del Administrativo -->
 					<sec:authorize access="hasAnyAuthority('Sistemas','Administrativo', 'Medico')">
 					    <li class="nav-item dropdown ms-2">
-					        <a class="nav-link dropdown-toggle ${navItem == 'Listar' ? 'active' : ''}"
+					        <a class="nav-link dropdown-toggle text-white ${navItem == 'Listar' ? 'active' : ''}"
 					           id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#">
 					           <i class="bi bi-card-list"></i> Listar
 					        </a>
@@ -60,20 +62,20 @@
 					<sec:authorize access="hasAuthority('Sistemas', 'Medico')">
 					    <!-- Menú para Administrativo -->
 					    <li class="nav-item dropdown ms-2">
-					        <a class="nav-link dropdown-toggle ${navItem == 'Ficha Médica' ? 'active' : ''}"
+					        <a class="nav-link dropdown-toggle text-white ${navItem == 'Ficha Médica' ? 'active' : ''}"
 					           id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#">
 					            <i class="bi bi-plus-circle"></i> Ficha Médica
 					        </a>
 					        <ul class="dropdown-menu">
-					            <li><a class="dropdown-item" href="FichaPaciente"> <i class="bi bi-file-plus"></i> Ficha Paciente</a></li>
+					            <li><a class="dropdown-item" href="FichaPaciente"> <i class="bi bi-card-list"></i> Ficha Paciente</a></li>
 					        </ul>
 					            
 					    </li>
 					</sec:authorize>					
 					<!-- Login si no ha iniciado sesión -->
 					<sec:authorize access="!isAuthenticated()">
-							<li class="nav-item flex-row flex-wrap text-light">
-						    	<a class="nav-link" href="login">
+							<li class="nav-item flex-row flex-wrap text-white">
+						    	<a class="nav-link text-white" href="login">
 							<i class="bi bi-box-arrow-in-left ms-2"></i> Login</a>
 						</li>
 					</sec:authorize">

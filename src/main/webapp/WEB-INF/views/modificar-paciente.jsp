@@ -30,6 +30,7 @@
 	<%@ include file='navbar.jsp'%>
 
 	<main class="flex-shrink-0">
+	<div style="padding-top: 120px;"></div>
 		<div class="align-items-center mt-4" >
 		
 			<!-- Formulario para crear un nuevo usuario -->
@@ -38,7 +39,6 @@
 			<!-- Agregar la variable booleana  -->
 			<c:set var="mostrarAlert" value="${mostrarAlert}" />
 			<c:set var="mensaje" value="${mensaje}" />
-						
 				<div class="card-header text-info"> 
 					<h2 class="card-title d-flex" > <i class="bi bi-clipboard-plus"></i>Modificar
 						Paciente</h2>
@@ -46,6 +46,7 @@
 				</div>
 				<div class="card-body">
 				</span>
+				
 					<form action="modificar-paciente" id="formulario" class="row" method="post">
 						<div class="col-md-6 mb-3">
 							<label for="rut" class="form-label">Rut</label> 
