@@ -11,43 +11,22 @@
 
     <!-- Configuración de la Base de Datos -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <!-- Driver -->
         <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
-
-        <!-- URL de conexión -->
         <property name="url" value="jdbc:mysql://localhost:3306/centro_medico" />
-
-        <!-- Nombre de Usuario -->
         <property name="username" value="root" />
-
-        <!-- Contraseña de Acceso -->
         <property name="password" value="12345" />
     </bean>
-
-    <!-- Configuración de JPA -->
     <bean id="entityManagerFactory"
         class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-        <!-- Referencia la datasource previamente configurado -->
         <property name="dataSource" ref="dataSource" />
-
-        <!-- Especificar qué paquete contiene los modelos -->
         <property name="packagesToScan" value="cl.centro_medico.modelos" />
-
-        <!-- Vendor Adapter -->
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter" />
         </property>
-
-        <!-- Propiedades JPA -->
         <property name="jpaProperties">
             <props>
-                <!-- Dialecto > https://docs.jboss.org/hibernate/core/3.6/reference/en-US/html/session-configuration.html -->
                 <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
-
-                <!-- Mostrar consultas SQL (depuración) -->
                 <prop key="hibernate.show_sql">true</prop>
-
-                <!-- Usar comentarios SQL. Permite ver los valores utilizados en las consultas -->
                 <prop key="use_sql_comments">true</prop>
             </props>
         </property>
@@ -57,14 +36,8 @@
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory" />
     </bean>
-
-    <!-- Habilitar la búsqueda de componentes en el proyecto -->
     <context:component-scan base-package="cl.centro_medico" />
-
-    <!-- Configuración del Administrador de Transacciones -->
     <tx:annotation-driven transaction-manager="transactionManager" />
-
-    <!-- Configuración de los Repositorios -->
-    <jpa:repositories base-package="cl.centro_medico.repositorios" />
+    <jpa:repositories base-package="cl.centro_medico.modelos.repositorio" />
 
 </beans>

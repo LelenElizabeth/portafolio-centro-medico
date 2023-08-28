@@ -2,7 +2,7 @@
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html class="h-100 translated-ltr">
+<html xmlns:th="http://www.thymeleaf.org" class="h-100 translated-ltr">
 <head>
 <meta charset="ISO-8859-1">
 <title>Ficha Paciente</title>
@@ -31,10 +31,10 @@
 
 	<main class="flex-shrink-0">
 	<div style="padding-top: 120px;"></div>
-		<div class="align-items-center mt-4" >
+		<div class="align-items-center mt-4 container" >
 		
 			<!-- Formulario para mostrar los datos del paciente -->
-			<div class="card col-md-12">
+			<div class="card col-md-12 container">
 			<span class="border border-info">
 			<!-- Agregar la variable booleana  -->
 			<c:set var="mostrarAlert" value="${mostrarAlert}" />
@@ -49,25 +49,25 @@
 					<div class="row">
 						<div class="col-md-6 mb-3">
 							<label for="rut" class="form-label">Rut: </label> 
-							<span>${paciente.rut}</span>
+							<span th:text="${pac.Rut()}"></span>
 							<label for="nombres" class="form-label">Nombres: </label>
-							<span>${paciente.nombres}</span>
-							<label for="apellido1" class="form-label">Apellido Materno: </label>
-							<span>${paciente.apellido1}</span>
-							<label for="apellido2" class="form-label">Apellido Paterno: </label>
-							<span>${paciente.apellido2}</span>
+							<span>${pac.Nombres}</span>
+							<label for="apellido1" class="form-label">Primer Apellido: </label>
+							<span>${pac.Apellido1}</span>
+							<label for="apellido2" class="form-label">Segundo Apellido: </label>
+							<span>${pac.Apellido2}</span>
 							<label for="fechaNacimiento" class="form-label">Fecha de nacimiento: </label>
-							<span>${paciente.fechaNacimiento}</span>
+							<span>${pac.Fecha_nacimiento}</span>
 							<label for="genero" class="form-label">Género: </label>
-							<span>${paciente.genero}</span>
+							<span>${pac.Genero}</span>
 							<label for="telefono" class="form-label">Telefono: </label>
-							<span>${paciente.telefono}</span>
+							<span>${pac.Telefono}</span>
 							<label for="correo" class="form-label">Correo: </label>
-							<span>${paciente.correo}</span>
+							<span>${pac.Correo}</span>
 							<label for="direccion" class="form-label">Dirección: </label>
-							<span>${paciente.direccion}</span>
+							<span>${pac.Direccion}</span>
 							<label for="comuna" class="form-label">Comuna</label>
-							<span>${paciente.comuna}</span>
+							<span>${pac.Comuna}</span>
 						</div>					
 					</div>
 				</div>

@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -31,64 +32,62 @@
 	<main class="flex-shrink-0">
 	<div style="padding-top: 120px;"></div>
 		<!--  Vista que muestra el listado de pacientes -->
-		<div class="container mt-4">
+		<div class="container-fluid mt-4 overflow-auto">
 
 			<section>
 				<h1>Listado de Pacientes</h1>
 				<c:choose>
-					<c:when test="${empty listaPacientes}">
+					<c:when test="${empty pacientes}">
 						<div class="alert alert-danger" style="text-align: center"
 							role="alert">
-							No hay registros de Visitas. <a href="CrearVisita"
+							No hay registros de Pacientes. <a href=""
 								class="alert-link">Ir a crear Paciente</a>
 						</div>					
 					</c:when>
 					<c:otherwise>
-						<!-- Agregar la variable booleana  -->
-						<c:set var="mostrarAlert" value="${mostrarAlert}" />
-						<c:set var="mensaje" value="${mensaje}" />
-
-						<!-- Utilizar la etiqueta 'c:if' para mostrar el alert solo cuando 'mostrarAlert' sea verdadero -->
-						<c:if test="${mostrarAlert}">
-							<div class="alert alert-info" style="text-align: center"
-								role="alert">${mensaje}</div>
-						</c:if>
-
 						<table class="table table-striped table-bordered">
 							<thead class="table-info">
-							
 								<tr>
-									<th>Rut Paciente</th>
+									<th>Rut</th>
 									<th>Nombres</th>
-									<th>Apellidos</th>
-									<th>Fecha atención</th>
-									<th>Médico</th>
-									<th>Modificar</th>
+									<th>Apellido1</th>
+									<th>Apellido2</th>
+									<th>Fecha de nacimiento</th>
+									<th>Genero</th>
+									<th>Direccion</th>
+									<th>Comuna</th>
+									<th>Telefono</th>
+									<th>Correo</th>
+									<th><i class="bi bi-arrows-move"></i></th>
+									<th><i class="bi bi-clipboard-plus"></i></th>
 								</tr>
 							</thead>
 							<tbody>
 								<!-- Ciclo forEach con JSTL para imprimir datos de la lista -->
-								<c:forEach var="pac" items="${listaPacientes}">
+								<c:forEach var="pac" items="${pacientes}">
 									<tr>
 										<td><c:out value="${pac.getRut()}"></c:out></td>
 										<td><c:out value="${pac.getNombres()}"></c:out></td>
 										<td><c:out value="${pac.getApellido1()}"></c:out></td>
 										<td><c:out value="${pac.getApellido2()}"></c:out></td>
-										<td><c:out value="${pac.getFecha_hora()}"></c:out></td>
+										<td><c:out value="${pac.getFecha_nacimiento()}"></c:out></td>
 										<td><c:out value="${pac.getGenero()}"></c:out></td>
+										<td><c:out value="${pac.getDireccion()}"></c:out></td>
+										<td><c:out value="${pac.getComuna()}"></c:out></td>
 										<td><c:out value="${pac.getTelefono()}"></c:out></td>
 										<td><c:out value="${pac.getCorreo()}"></c:out></td>
-										<td>
-											<!-- Enviamos el id para visualizar los chequeos de la visita -->
-											<form action="responder-checklist" method="get">
-												<input type="hidden" name="PacienteId"
-													value="${pac.getId()}">
-												<button type="submit" class="btn btn-outline-info btn-sm">
-													<i class="bi bi-check2-square"></i> Evolucionar
-												</button>
-											</form>
+										<td>											<!-- Enviar el ID del usuario al servlet EditarUsuario al hacer clic en el botÃ³n "Editar" -->
+											<a class="btn btn-outline-info btn-sm" href="ModificarPaciente/${pac.getId()}">
+													<i class="bi bi-pencil-square"></i> Editar
+											</a>
 										</td>
-										
+										<td>											<!-- Enviar el ID del usuario al servlet EditarUsuario al hacer clic en el botÃ³n "Editar" -->
+											<input type="hidden" name="idRescatado"
+													value="${pac.getId()}">
+											<a class="btn btn-outline-info btn-sm" href="CrearFicha/${pac.getId()}">
+													<i class="bi bi-pencil-square"></i> Abrir Ficha
+											</a>
+										</td>
 									</tr>
 								</c:forEach>
 							</tbody>

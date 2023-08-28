@@ -1,33 +1,25 @@
 package cl.centro_medico.modelos.entity;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="paciente")
 public class Paciente {
+	
 	@Id
 	@Column(name="id")
 	private int id;
 	@Column(name="rut")
-	private int rut;	
+	private String rut;	
 	private String nombres;
 	private String apellido1;
 	private String apellido2;
-	private LocalDateTime fecha_hora;
+	private LocalDateTime fecha_nacimiento;
 	private String genero;
 	private String direccion;
 	private String comuna;
@@ -35,21 +27,23 @@ public class Paciente {
 	private String correo;
 	
 
-	public Paciente(int id, int rut, String nombres, String apellido1, String apellido2, LocalDateTime fecha_hora,
+	public Paciente(int id, String rut, String nombres, String apellido1, String apellido2, LocalDateTime fecha_nacimiento,
 			String genero, String direccion, String comuna, int telefono, String correo) {
-		super();
-		this.id = id;
-		this.rut = rut;
-		this.nombres = nombres;
-		this.apellido1 = apellido1;
-		this.apellido2 = apellido2;
-		this.fecha_hora = fecha_hora;
-		this.genero = genero;
-		this.direccion = direccion;
-		this.comuna = comuna;
-		this.telefono = telefono;
-		this.correo = correo;
+		super();		
+		setId(id);
+		setRut(rut);
+		setNombres(nombres);
+		setApellido1(apellido1);
+		setApellido2(apellido2);
+		setFecha_nacimiento(fecha_nacimiento);
+		setGenero(genero);
+		setDireccion(direccion);
+		setComuna(comuna);
+		setTelefono(telefono);
+		setCorreo(correo);
+		
 	}
+	
 
 	public Paciente() {}
 
@@ -61,11 +55,11 @@ public class Paciente {
 		this.id = id;
 	}
 
-	public int getRut() {
+	public String getRut() {
 		return rut;
 	}
 
-	public void setRut(int rut) {
+	public void setRut(String rut) {
 		this.rut = rut;
 	}
 
@@ -93,13 +87,6 @@ public class Paciente {
 		this.apellido2 = apellido2;
 	}
 
-	public LocalDateTime getFecha_hora() {
-		return fecha_hora;
-	}
-
-	public void setFecha_hora(LocalDateTime fecha_hora) {
-		this.fecha_hora = fecha_hora;
-	}
 
 	public String getGenero() {
 		return genero;
@@ -140,12 +127,22 @@ public class Paciente {
 	public void setCorreo(String correo) {
 		this.correo = correo;
 	}
-	
+
+	public LocalDateTime getFecha_nacimiento() {
+		return fecha_nacimiento;
+	}
+
+
+	public void setFecha_nacimiento(LocalDateTime fecha_nacimiento) {
+		this.fecha_nacimiento = fecha_nacimiento;
+	}	
 	@Override
 	public String toString() {
 		return "Paciente [id=" + id + ", rut=" + rut + ", nombres=" + nombres + ", apellido1=" + apellido1
-				+ ", apellido2=" + apellido2 + ", fecha_hora=" + fecha_hora + ", genero=" + genero + ", direccion="
+				+ ", apellido2=" + apellido2 + ", fecha_nacimiento=" + fecha_nacimiento + ", genero=" + genero + ", direccion="
 				+ direccion + ", comuna=" + comuna + ", telefono=" + telefono + ", correo=" + correo + "]";
 	}
+
+
 
 }

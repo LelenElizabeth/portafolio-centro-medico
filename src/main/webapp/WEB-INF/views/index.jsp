@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Inicio - Prevent</title>
+    <title>Centro Médico</title>
     <!-- Incluyendo estilos -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
           rel="stylesheet"
@@ -48,7 +48,7 @@
             <section class="mt-5">
                 <section id="mision">
         <h2>Nuestra Misión</h2>
-        <p>En el Centro Médico [Nombre del Centro], nos comprometemos a brindar atención médica de la más alta calidad a nuestra comunidad. Nuestra misión es proporcionar servicios médicos compasivos, accesibles y personalizados para mejorar la salud y la calidad de vida de nuestros pacientes.</p>
+        <p>En el Centro Médico, nos comprometemos a brindar atención médica de la más alta calidad a nuestra comunidad. Nuestra misión es proporcionar servicios médicos compasivos, accesibles y personalizados para mejorar la salud y la calidad de vida de nuestros pacientes.</p>
     </section>
     
     <section">
