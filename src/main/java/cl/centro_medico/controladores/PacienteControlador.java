@@ -51,7 +51,7 @@ public class PacienteControlador {
 	public ModelAndView guardar(@RequestParam String rut, @RequestParam String nombres,
 			@RequestParam String apellido1, @RequestParam String apellido2,
 			@RequestParam String fechaNacimiento, @RequestParam String genero, @RequestParam String telefono,
-			@RequestParam String correo, @RequestParam String direccion, @RequestParam int idPaciente, @RequestParam String comuna, Model model) {
+			@RequestParam String correo, @RequestParam String direccion, @RequestParam(defaultValue = "0") int idPaciente, @RequestParam String comuna, Model model) {
 
 		System.out.println("Id Paciente: " + idPaciente);
 		Paciente paciente = new Paciente();
