@@ -29,43 +29,69 @@
 	<%@ include file='navbar.jsp'%>
 
 	<main class="flex-shrink-0">
+	    <!-- Espacio para el navbar fijo -->
+    <div style="padding-top: 120px;"></div>
 		<div class="container mt-4">
 			<!-- Fomulario de login -->
 			<div id="login" class="row justify-content-center align-items-center">
 				<div class="col-lg-12 col-md-8">
-					<div class="card"><span class="border border-info">
+					<div class="card border border-info">
 						<div class="card-body">
-							<div id="login-column" class="col-md-6">
-								<div id="login-box" class="col-md-12"> 
-									<form id="login-form" class="form" action="" method="post">
-										<h3 class="text-center text-info">Iniciar sesión</h3>
-										<div class="form-group">
-											<label for="usuario" class="text-info">Usuario:</label><br>
-											<input type="text" name="usuario" id="usuario"
-												class="form-control">
-										</div>
-										<div class="form-group">
-											<label for="contrasena" class="text-info">Contraseña:</label><br>
-											<input type="text" name="contrasena" id="contrasena"
-												class="form-control">
-										</div>
-										<div class="form-group">
-											<label for="remember-me" class="text-info"><span>Recuerdame
-											</span> <span><input id="remember-me" name="remember-me"
-													type="checkbox"></span></label><br> <input type="submit"
-												name="submit" class="btn btn-info btn-md"
-												value="Iniciar sesion">
-										</div>
-									</form>
+							<c:choose>
+								<c:when test="${error}">
+									<div class="alert alert-danger" style="text-align: center"
+										role="alert">Error al iniciar sesión.</div>
+								</c:when>
+								<c:when test="${logoutt}">
+									<div class="alert alert-warning" style="text-align: center"
+										role="alert">Se cerró la sesión correctamente.</div>
+								</c:when>
+							</c:choose>
+							<div class="row justify-content-start">
+								<div id="login-column" class="col-md-6">
+									<div id="login-box" class="col-md-12">
+
+										<!-- Formulario login -->
+										<form action="login" method="POST">
+										<svg xmlns="http://www.w3.org/2000/svg" height="4em"
+									viewBox="0 0 448 512"> 
+									<style>									
+									svg {
+									fill: #36b4c4
+										}
+									</style>
+									<path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" /></svg>
+											<h3 class="text-center text-info">Iniciar sesión</h3>
+											<div class="mb-3">
+												<label for="usuario" class="form-label text-info">Usuario:</label><br>
+												<input type="text" name="usuario" id="usuario"
+													class="form-control" required>
+											</div>
+											<div class="mb -3 form-group">
+												<label for="password" class="form-label text-info">Contraseña:</label><br>
+												<input type="password" name="password" id="password"
+													class="form-control" required>
+											</div>
+											<div class="form-group">
+												<label for="form-check" class="text-info"><span>Recuerdame
+												</span> <span><input id="remember-me" name="remember-me"
+														type="checkbox"></span></label><br>
+											</div>
+											<div>
+												<button type="submit" class="btn btn-info w-75">Iniciar
+													Sesión</button>
+											</div>
+										</form>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div></span>
+					</div>
 				</div>
 			</div>
 		</div>
 	</main>
-	
+
 	<!-- Footer proyecto -->
 	<%@ include file='footer.jsp'%>
 	<!-- JavaScript Bootstrap -->

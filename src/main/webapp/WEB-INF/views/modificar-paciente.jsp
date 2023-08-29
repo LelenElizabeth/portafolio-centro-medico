@@ -25,11 +25,12 @@
 <body class="d-flex flex-column h-100">
 
 <!-- Incluyendo navbar menu -->
-	<c:set var="navItem" value="Crear" /> <!-- Menu activo -->
+	<c:set var="navItem" value="Modificar" /> <!-- Menu activo -->
 	<c:set var="navText" value="Paciente"/> <!-- Texto Crear -->
 	<%@ include file='navbar.jsp'%>
 
 	<main class="flex-shrink-0">
+	<div style="padding-top: 120px;"></div>
 		<div class="align-items-center mt-4" >
 		
 			<!-- Formulario para crear un nuevo usuario -->
@@ -38,35 +39,35 @@
 			<!-- Agregar la variable booleana  -->
 			<c:set var="mostrarAlert" value="${mostrarAlert}" />
 			<c:set var="mensaje" value="${mensaje}" />
-						
-				<div class="card-header text-info"> 
-					<h2 class="card-title d-flex" > <i class="bi bi-clipboard-plus"></i>Modificar
-						Paciente</h2>
+				<c:set var="paciente" value="${paciente}" />
+				<div class="card-header text-info">
+					<h2 class="card-title d-flex" > <i class="bi bi-clipboard-plus"></i>Paciente: ${paciente.nombres}</h2>
 						
 				</div>
 				<div class="card-body">
 				</span>
-					<form action="modificar-paciente" id="formulario" class="row" method="post">
-						<div class="col-md-6 mb-3">
+				
+					<form action="${pageContext.request.contextPath}/GuardarPaciente" id="formulario" class="row" method="POST">
+						<div class="col-md-6 mb-3 container-fluid">
 							<label for="rut" class="form-label">Rut</label> 
-							<input  type="text"class="form-control" name="rut" required>
+							<input  type="text"class="form-control" name="rut" value="${paciente.rut}" required>
 						</div>					
 						<div class="col-md-12 mb-3">
 							<label for="nombres" class="form-label">Nombres</label> <input
-								type="text" class="form-control" name="nombres" required>
+								type="text" class="form-control" name="nombres" value="${paciente.nombres}" required>
 						</div>
 						<div class="col-md-6 mb-3">
 							<label for="apellido1" class="form-label">Apellido Materno</label> <input
-								type="text" class="form-control" name="apellido1" required>
+								type="text" class="form-control" name="apellido1" value="${paciente.apellido1}" required>
 						</div>			
 						<div class="col-md-6 mb-3">
 							<label for="apellido2" class="form-label">Apellido Paterno</label> <input
-								type="text" class="form-control" name="apellido2" required>
+								type="text" class="form-control" name="apellido2" value="${paciente.apellido2}" required>
 						</div>		
 						<div class="col-md-6 mb-3">
 								<label for="fechaNacimiento" class="form-label">Fecha de nacimiento</label>
 							<div class="input-group date" id="datetimepicker" data-target-input="nearest">
-							         <input type="text" class="form-control datetimepicker-input" name="fechaNacimiento" data-target="#datetimepicker" />
+							         <input type="text" class="form-control datetimepicker-input" name="fechaNacimiento" data-target="#datetimepicker" value="${paciente.fecha_nacimiento}"/>
 							    <div class="input-group-append" data-target="#datetimepicker" data-toggle="datetimepicker">
 							          <div class="input-group-text"><i class="bi bi-calendar"></i></div>
 							    </div>
@@ -74,30 +75,30 @@
 						</div>
 						<div class="col-md-6 mb-3">
 							<label for="genero" class="form-label">Género</label> <select
-								class="form-select" name="dia" required>
-								<option value="" disabled selected>Seleccione</option>
-								<option value="Masculino">Masculino</option>
-								<option value="Femenino">Femenino</option>
+								class="form-select" name="genero" required>
+								<option value="" disabled>Seleccione</option>
+								<option value="Masculino" ${paciente.genero == 'Masculino' ? 'selected' : ''}>Masculino</option>
+        <option value="Femenino" ${paciente.genero == 'Femenino' ? 'selected' : ''}>Femenino</option>
 							</select>
 						</div>
 						<div class="col-md-6 mb-3">
 								<label for="telefono" class="form-label">Telefono</label> 
-								<input  type="text" class="form-control" name="telefono" required>
+								<input  type="text" class="form-control" name="telefono" value="${paciente.telefono}" required>
 						</div>
 						<div class="col-md-6 mb-3">
 								<label for="correo" class="form-label">Correo</label><input
-										type="text" class="form-control" name="correo" required>
+										type="text" class="form-control" name="correo" value="${paciente.correo}" required>
 						</div>							
 						<div class="col-md-6 mb-3">
 								<label for="direccion" class="form-label">Dirección</label> 
-								<input type="text" class="form-control" name="direccion" required>
+								<input type="text" class="form-control" name="direccion" value="${paciente.direccion}" required>
 						</div>
 						<div class="col-md-6 mb-3">
 								<label for="comuna" class="form-label">Comuna</label> 
-								<input  type="text" class="form-control" name="comuna" required>
+								<input  type="text" class="form-control" name="comuna" value="${paciente.comuna}" required>
 						</div>												
 																											
-				        
+				        <input type="hidden" name="idPaciente" value="${paciente.id}">
 						<div class="col-md-12 d-flex justify-content-end">
 							<button type="submit" class="btn btn-info mt-4 btn-lg"> Grabar <i class="bi bi-clipboard-plus"></i></button>
 						</div>

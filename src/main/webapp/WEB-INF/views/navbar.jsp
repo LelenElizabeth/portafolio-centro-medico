@@ -10,13 +10,17 @@
 <header>
 
 	<!-- Navbar del sitio -->
-<nav class="navbar navbar-expand" style="background-color: #17a2b8;">
-  <!-- Navbar content -->
-  		<div class="container-fluid">
+	<nav class="navbar navbar-expand-md fixed-top"
+		style="background-color: #17a2b8;">
+		<!-- Navbar content -->
+		<div class="container-fluid">
 			<!-- Logo y nombre del sitio -->
-			<a class="navbar-brand" href="#"> <i class="bi bi-fan"></i> <span
-				class="text-ligth">Centro médico</span>
+			<a class="navbar-brand" href="#"> <i
+				class="bi bi-hospital text-white"></i> <span class="text-white">Centro
+					Médico</span>
 			</a>
+			<!-- Espacio para el navbar fijo -->
+			<div style="padding-top: 70px;"></div>
 			<!-- boton del menu  -->
 			<button class="navbar-toggler" type="button"
 				data-bs-toggle="collapse" data-bs-target="#menu"
@@ -28,96 +32,84 @@
 			<div class="collapse navbar-collapse" id="menu">
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item ms-2"><a
-						class="nav-link ${navItem == 'Inicio' ? 'active' : ''}"
+						class="nav-link text-white ${navItem == 'Inicio' ? 'active' : ''}"
 						href="Inicio"> <i class="bi bi-house"></i> Inicio
 					</a></li>
-					 
-					<sec:authorize access="hasAuthority('Administrativo')">
-					    <!-- Menú para Administrativo -->
-					    <li class="nav-item dropdown ms-2">
-					        <a class="nav-link dropdown-toggle ${navItem == 'Paciente' ? 'active' : ''}"
-					           id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#">
-					            <i class="bi bi-plus-circle"></i> Paciente
-					        </a>
-					        <ul class="dropdown-menu">
-					            <li><a class="dropdown-item" href="CrearPaciente"> <i class="bi bi-file-plus"></i> Crear Paciente</a></li>
-					            <li><a class="dropdown-item" href="ModificarPaciente"> <i class="bi bi-file-plus"></i> Modificar Paciente</a></li>
-					            <li><a class="dropdown-item" href="buscar-paciente"> <i class="bi bi-file-plus"></i> Buscar Paciente</a></li>
-					            
-					        </ul>
-					    </li>
-					</sec:authorize>
-					<!-- Menu Listar del Administrativo -->
-					<sec:authorize access="hasAnyAuthority('Administrativo')">
-					    <li class="nav-item dropdown ms-2">
-					        <a class="nav-link dropdown-toggle ${navItem == 'Listar' ? 'active' : ''}"
-					           id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#">
-					           <i class="bi bi-card-list"></i> Listar
-					        </a>
-					        <ul class="dropdown-menu">
-					            <li><a class="dropdown-item" href="ListadoPacientes"> <i class="bi bi-file-plus"></i> Listar Paciente</a></li>
-					        </ul>					        
-					    </li>
-					</sec:authorize>
-					<sec:authorize access="hasAuthority('Administrativo')">
-					    <!-- Menú para Administrativo -->
-					    <li class="nav-item dropdown ms-2">
-					        <a class="nav-link dropdown-toggle ${navItem == 'Ficha Médica' ? 'active' : ''}"
-					           id="navbarDropdown" role="button" data-bs-toggle="dropdown" href="#">
-					            <i class="bi bi-plus-circle"></i> Ficha Médica
-					        </a>
-					        <ul class="dropdown-menu">
-					            <li><a class="dropdown-item" href="FichaPaciente"> <i class="bi bi-file-plus"></i> Ficha Paciente</a></li>
-					        </ul>
-					            
-					    </li>
-					</sec:authorize>					
-					<!-- Login si no ha iniciado sesión -->
-					<sec:authorize access="!isAuthenticated()">
-							<li class="nav-item flex-row flex-wrap text-light">
-						    	<a class="nav-link " href="login">
-							<i class="bi bi-box-arrow-in-left ms-2"></i> Login</a>
-						</li>
-					</sec:authorize>
+
+					<li class="nav-item dropdown ms-2"><a
+						class="nav-link dropdown-toggle text-white ${navItem == 'Paciente' ? 'active' : ''}"
+						id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+						href="#"> <i class="bi bi-person-fill-add"></i> Paciente
+					</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="CrearPaciente"> <i
+									class="bi bi-person-fill-add"></i></i> Crear Paciente
+							</a></li>
+<!-- 							<li><a class="dropdown-item" href="ModificarPaciente"> <i -->
+<!-- 									class="bi bi-person-check-fill"></i> Modificar Paciente -->
+<!-- 							</a></li> -->
+						</ul></li>
+					<li class="nav-item dropdown ms-2"><a
+						class="nav-link dropdown-toggle text-white ${navItem == 'Listar' ? 'active' : ''}"
+						id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+						href="#"> <i class="bi bi-card-list"></i> Listar
+					</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="ListarPacientes"> <i
+									class="bi bi-card-list"></i> Listado de Pacientes
+							</a></li>
+						</ul></li>
+					<!-- Menú para Administrativo -->
+					<li class="nav-item dropdown ms-2"><a
+						class="nav-link dropdown-toggle text-white ${navItem == 'Ficha Médica' ? 'active' : ''}"
+						id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+						href="#"> <i class="bi bi-clipboard-plus"></i> Ficha Médica
+					</a>
+						<ul class="dropdown-menu">
+							<li><a class="dropdown-item" href="FichaPaciente"> <i
+									class="bi bi-clipboard-plus"></i> Ficha Paciente
+							</a></li>
+						</ul></li>
+					<li class="nav-item flex-row flex-wrap text-white"><a
+						class="nav-link text-white" href="login"> <i
+							class="bi bi-box-arrow-in-left ms-2"></i> Login
+					</a></li>
 				</ul>
-				<sec:authorize access="isAuthenticated()">
-					<ul class="navbar-nav flex-row flex-wrap text-light">
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle"
-							id="navbarDropdown" role="button" data-bs-toggle="dropdown"  href="#">
-								<i class="bi bi-person-circle"></i>   <sec:authentication property="principal.username" />
-							</a>
-						    <ul class="dropdown-menu dropdown-menu-end">
-						    	<li>
-						    		<a class="btn btn-outline-info"  role="button" data-bs-toggle="modal" data-bs-target="#logoutModal" href="#">
-						    		<i class="bi bi-box-arrow-right"></i> Cerrar Sesión</a>
-						    	</li>
-						    </ul>
-						</li>
-				    </ul>
-			    </sec:authorize>
+				<ul class="navbar-nav flex-row flex-wrap text-light">
+					<li class="nav-item dropdown"><a
+						class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+						data-bs-toggle="dropdown" href="#"> </a>
+						<ul class="dropdown-menu dropdown-menu-end">
+							<li><a class="btn btn-outline-info" role="button"
+								data-bs-toggle="modal" data-bs-target="#logoutModal" href="#">
+									<i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+							</a></li>
+						</ul></li>
+				</ul>
 			</div>
 		</div>
-  
-</nav>
 
-
+	</nav>
 </header>
 <!-- Modal de Cerrar Sesión -->
-<div class="modal fade" id="logoutModal" tabindex="-1" aria-labelledby="logoutModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="logoutModalLabel">Confirmar Cierre de Sesión <i class="bi bi-box-arrow-right"></i></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                ¿Estás seguro de que deseas cerrar sesión?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-outline-info" data-bs-dismiss="modal">Cancelar</button>
-                <a href="logout" class="btn btn-info">Cerrar Sesión</a>
-            </div>
-        </div>
-    </div>
+<div class="modal fade" id="logoutModal" tabindex="-1"
+	aria-labelledby="logoutModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="logoutModalLabel">
+					Confirmar Cierre de Sesión <i class="bi bi-box-arrow-right"></i>
+				</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal"
+					aria-label="Close"></button>
+			</div>
+			<div class="modal-body">¿Estás seguro de que deseas cerrar
+				sesión?</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info" data-bs-dismiss="modal">Cancelar</button>
+				<a href="logout" class="btn btn-info"> Cerrar Sesión</a>
+			</div>
+		</div>
+	</div>
 </div>
+
